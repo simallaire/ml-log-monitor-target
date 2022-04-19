@@ -1,20 +1,29 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+This project is meant to be used as a target endpoint for prometheus to monitor.
+It is meant to be added as a submodule to a container you want to monitor or to run by itself.
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+main.py is an incomplete example implementation, here's the necessary steps to have a functionning log monitor target
+You may want to check other branches for complete implementations.
+1.	Create and start the threaded http server
+2.	Create the logmetrics string builder
+3.	Call the logmetrics function you added
+4.	Write the logmetrics on the server using `server.write(logmetrics)`
+5.  Loop
 
 # Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+``` 
+python main.py 
+```
+
+See `logserver` branch for dockerize implementation
+
+``` 
+docker-compose up 
+```
 
 # Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+Add your new target to `ml-log-monitor/prometheus/prometheus.yml`
+
+(Optional) Add a new rule for your target's metrics in `ml-log-monitor/prometheus/rules.yml`
