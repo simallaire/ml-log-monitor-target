@@ -14,6 +14,7 @@ def main():
         log_metrics = LogMetrics()
 
         # Build metrics string
+        log_metrics.add_docker_partitition_usage()
 
         server.write(log_metrics)
         time.sleep(LOOP_TIME)
