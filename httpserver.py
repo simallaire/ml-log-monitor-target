@@ -4,7 +4,7 @@ import threading
 import time
 import os
 
-hostName = "localhost"
+hostName = "0.0.0.0"
 
 serverPort = 8080
 if "PORT" in os.environ:
