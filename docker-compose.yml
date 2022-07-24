@@ -6,10 +6,12 @@ services:
     image: log-monitoring-target:latest
     restart: unless-stopped
     environment:
+      - PYTHONUNBUFFERED=1
       - TZ=America/Toronto
       - DEBUG_MODE=0
-      - LOOP_TIME=10
+      - LOOP_TIME=1
       - PORT=8081
+      - ID=0
     volumes:
       - /var/lib/docker:/var/lib/docker
       - /mnt/g:/mnt/g

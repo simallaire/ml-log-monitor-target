@@ -4,6 +4,15 @@ from typing import Deque
 import psutil
 import numpy as np
 from collections import deque
+
+ID=0
+if "ID" in os.environ:
+    ID = int(os.environ["ID"])
+    
+LOOP_TIME = 10
+if "LOOP_TIME" in os.environ:
+    LOOP_TIME = int(os.environ["LOOP_TIME"])
+    
 class LogMetrics:
     def __init__(self):
         self.output = ""
