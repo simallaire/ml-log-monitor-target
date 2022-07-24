@@ -10,11 +10,12 @@ if "LOOP_TIME" in os.environ:
 
 def main():
     server = MyServer()
+    log_metrics = LogMetrics()
+    
     while True:
-        log_metrics = LogMetrics()
-
         # Build metrics string
         log_metrics.add_docker_partitition_usage()
+        log_metrics.add_system_usage()
 
         server.write(log_metrics)
         time.sleep(LOOP_TIME)
